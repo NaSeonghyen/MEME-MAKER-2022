@@ -6,6 +6,7 @@ const destroyBtn = document.getElementById("destroy-btn");
 const eraserBtn = document.getElementById("eraser-btn");
 const colorOptions = Array.from(document.getElementsByClassName("color-option"));
 const color = document.getElementById("color");
+const fontSize = document.getElementById("font-size");
 const lineWidth = document.getElementById("line-width");
 const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
@@ -16,6 +17,7 @@ const CANVAS_HEIGHT = 800;
 canvas.width = CANVAS_WIDTH;
 canvas.height = CANVAS_HEIGHT;
 ctx.lineWidth = lineWidth.value;
+ctx.font
 ctx.lineCap = "round";
 let isPainting = false;
 let isFilling = false;
@@ -96,7 +98,7 @@ function onDoubleClick(event) {
     if(text !== ""){
         ctx.save(); // 현재 상태 저장
         ctx.lineWidth = 1;
-        ctx.font= "68px serif";
+        ctx.font= `${fontSize.value}px serif`;
         ctx.strokeText(text, event.offsetX, event.offsetY);
         ctx.restore(); // 저장했던 버전으로 되돌리기
     }
